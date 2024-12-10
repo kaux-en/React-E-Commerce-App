@@ -1,0 +1,43 @@
+.nav-link {
+  padding: 10px;
+  text-decoration: none;
+  margin-right: 8px;
+}
+
+.mb-3 {
+  padding: 10px;
+}
+
+form {
+  padding-top: 20px;
+}
+
+.formbutton {
+  margin-left: 10px;
+}
+
+.detailsform {
+  margin-top: 15px;
+}
+
+.editform {
+  padding: 15px;
+}
+
+.labels {
+  padding: 10px;
+}
+
+.submitupdate {
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
