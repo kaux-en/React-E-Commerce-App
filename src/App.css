@@ -33,11 +33,23 @@ form {
   margin-right: 10px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.button-1 {
+  border-radius: 8px;
+  margin-bottom: 10px;
+  background-color: lightgray;
+  font-size: 14px;
+}
+
+p, h2, h3 {
+  margin-left: 10px;
+}
+
+.li {
+  text-decoration: none;
+}
+
+.sidebuttons {
+  margin: 10px;
+  border-radius: 8px;
+  background-color: lightgray;
 }

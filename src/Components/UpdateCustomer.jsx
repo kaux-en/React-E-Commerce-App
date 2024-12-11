@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import React from "react";
 import axios from 'axios';
 import { useNavigate, useParams } from "react-router-dom";
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 
 
 const UpdateCustomer = () => {
@@ -10,6 +12,10 @@ const UpdateCustomer = () => {
     let navigate = useNavigate();
     const url = `http://127.0.0.1:5000/customer/${id}`;
     const [errors, setErrors] = useState({});
+
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     const [customerData, setCustomerData] = useState({
         name: '',
@@ -49,8 +55,8 @@ const UpdateCustomer = () => {
         if (Object.keys(validationerrors).length === 0) {
             try {
                 console.log(customerData)
-                await axios.put(url, {...customerData, id:id})
-                navigate(`/CustomerDetails/${customerId}`)
+                await axios.put(url, customerData)
+                navigate(`/CustomerDetails/${id}`)
                 console.log('Submitted customer data:', { name, email, phone });
             }  catch {
                 setErrors(validationerrors);
@@ -65,12 +71,13 @@ const UpdateCustomer = () => {
             [name]: value
         }));
      };
+
    
     
     return (
        <div>
-
-
+        
+            
         <form onSubmit={handleSubmit} className="editform">
                 <h3>Add/Edit Customer</h3>
                 <label className="labels">
@@ -103,10 +110,24 @@ const UpdateCustomer = () => {
                     {errors.phone && <div style={{ color: 'red' }}>{ errors.phone }</div>}
                 </label>
                 <br />
-                <button type="submit" className="submitupdate">Submit</button>
+                <Button variant="primary" onClick={handleShow}>
+                Submit
+                </Button>
+                <Modal show={show}>
+                    <Modal.Header>
+                        <Modal.Title>Success!</Modal.Title>
+                    </Modal.Header>
+                        <Modal.Body>Customer has been updated!</Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                    <Button variant="primary" type="submit" onClick={handleSubmit}>Save changes</Button>
+                    </Modal.Footer>
+                </Modal>
             </form>
-        </div>
-        )
+     </div>
+    )
 };
 
 export default UpdateCustomer;

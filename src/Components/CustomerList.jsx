@@ -27,7 +27,7 @@ const CustomerList = () => {
             {
                 customers.length >= 1 && customers.map(customer => (
                     <li>
-                    <p><Link to={`/CustomerDetails/${customer.id}`}>{customer.name}</Link></p><button onClick={() => navigate(`/UpdateCustomer/${customer.id}`) }>Update Customer</button>
+                    <p><Link to={`/CustomerDetails/${customer.id}`} className="li">{customer.name}</Link></p><button onClick={() => navigate(`/UpdateCustomer/${customer.id}`) } className="button-1">Update Customer</button>
                     </li>
                 ))
             }

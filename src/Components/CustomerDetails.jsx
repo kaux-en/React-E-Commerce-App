@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 
 const CustomerDetails = () => { 
@@ -10,9 +10,8 @@ const CustomerDetails = () => {
         email: '',
         phone: ''
     });
-    const [customerId, setCustomerId] = useState('')
+    
     const { id }  = useParams();
-    let navigate = useNavigate();
 
     useEffect(() => {
         const fetchDetails = async () => {
